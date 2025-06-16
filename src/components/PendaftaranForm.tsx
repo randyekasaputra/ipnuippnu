@@ -11,13 +11,13 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function PendaftaranForm() {
-  const [form, setForm] = useState<{
-    nama: string;
-    nomer_hp: string;
-    alamat: string;
-    usia: string;
-    pendidikan_terakhir: string;
-  }>({ nama: "", nomer_hp: "", alamat: "", usia: "", pendidikan_terakhir: "" });
+  const [form, setForm] = useState({
+    nama: "",
+    nomer_hp: "",
+    alamat: "",
+    usia: "",
+    pendidikan_terakhir: ""
+  });
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
@@ -30,7 +30,7 @@ export default function PendaftaranForm() {
     const message = `Halo, saya ingin mendaftar sebagai anggota baru IPNU IPPNU.\n\nNama Lengkap: ${form.nama}\nNomor HP: ${form.nomer_hp}\nAlamat: ${form.alamat}\nUsia: ${form.usia}\nPendidikan Terakhir: ${form.pendidikan_terakhir}\n\nMohon petunjuk selanjutnya untuk proses pendaftaran. Terima kasih.`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/6287731932494?text=${encodedMessage}`; // Ganti dengan nomor WhatsApp tujuan Anda
+    const whatsappUrl = `https://wa.me/6287731932494?text=${encodedMessage}`;
 
     window.open(whatsappUrl, '_blank');
 
