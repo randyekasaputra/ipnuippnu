@@ -40,7 +40,7 @@ const organizationData: OrganizationMember[] = [
     { position: "Departemen Olahraga", name: "M. Agha Auzika Rahman", department: "organization" },
 ];
 
-const departmentIcons: Record<string, any> = {
+const departmentIcons: Record<string, React.ComponentType<{ className?: string }>> = {
     education: BookOpen,
     social: Heart,
     dakwah: Megaphone,

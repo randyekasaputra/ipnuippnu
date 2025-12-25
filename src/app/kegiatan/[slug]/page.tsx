@@ -4,10 +4,20 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeftIcon, CalendarIcon, UsersIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, CalendarIcon, UsersIcon } from "@heroicons/react/24/outline";
 
 // Data kegiatan lengkap
-const kegiatanData: Record<string, any> = {
+interface KegiatanData {
+    title: string;
+    description: string;
+    image: string;
+    fullDescription: string;
+    waktu: string;
+    peserta: string;
+    penyelenggara: string;
+}
+
+const kegiatanData: Record<string, KegiatanData> = {
     "takbir-keliling": {
         title: "Takbir Keliling",
         description: "Takbir Keliling adalah kegiatan yang diselenggarakan oleh IPNU IPPNU Ranting Suwawal Timur dalam menyambut datangnya hari raya idul adha yang diikuti oleh seluruh warga masyarakat yang berada di wilayah Ranting Suwawal Timur.",
