@@ -111,13 +111,14 @@ Dalam pelantikan, pengurus baru mengucapkan janji setia untuk menjalankan amanah
     },
 };
 
-export default function KegiatanDetailPage({ params }: { params: { slug: string } }) {
-    const kegiatan = kegiatanData[params.slug];
+export default async function KegiatanDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const kegiatan = kegiatanData[slug];
 
     // Get other activities (exclude current one)
     const otherActivities = Object.entries(kegiatanData)
-        .filter(([slug]) => slug !== params.slug)
-        .map(([slug, data]) => ({ slug, ...data }));
+        .filter(([activitySlug]) => activitySlug !== slug)
+        .map(([activitySlug, data]) => ({ slug: activitySlug, ...data }));
 
     if (!kegiatan) {
         return (
