@@ -4,6 +4,7 @@ import {
   AcademicCapIcon,
   UserGroupIcon,
   HeartIcon,
+  SparklesIcon,
 } from "@heroicons/react/24/outline";
 
 const features = [
@@ -24,6 +25,12 @@ const features = [
     description:
       "Mengasah kepedulian sosial melalui berbagai program pengabdian masyarakat yang bermanfaat.",
     icon: HeartIcon,
+  },
+  {
+    title: "Keagamaan",
+    description:
+      "Memperkuat iman dan takwa melalui kajian keislaman, pengajian rutin, dan kegiatan keagamaan lainnya.",
+    icon: SparklesIcon,
   },
 ];
 
@@ -53,7 +60,7 @@ export default function TentangSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -62,7 +69,7 @@ export default function TentangSection() {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
-              className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 relative overflow-hidden"
+              className="group bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 relative overflow-hidden"
             >
               {/* Hover effect background */}
               <motion.div
@@ -78,10 +85,10 @@ export default function TentangSection() {
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.2 + 0.1 }}
                 viewport={{ once: true }}
-                className="relative mb-6"
+                className="relative mb-4 sm:mb-6"
               >
-                <div className="w-16 h-16 rounded-2xl bg-yellow-300/20 flex items-center justify-center">
-                  <feature.icon className="w-8 h-8 text-yellow-300" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-yellow-300/20 flex items-center justify-center">
+                  <feature.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-yellow-300" />
                 </div>
               </motion.div>
 
@@ -91,7 +98,7 @@ export default function TentangSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
                 viewport={{ once: true }}
-                className="text-xl font-semibold text-yellow-300 mb-4"
+                className="text-base sm:text-lg lg:text-xl font-semibold text-yellow-300 mb-2 sm:mb-3 lg:mb-4"
               >
                 {feature.title}
               </motion.h3>
@@ -101,7 +108,7 @@ export default function TentangSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
                 viewport={{ once: true }}
-                className="text-yellow-50"
+                className="text-xs sm:text-sm lg:text-base text-yellow-50"
               >
                 {feature.description}
               </motion.p>
@@ -112,16 +119,16 @@ export default function TentangSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 + 0.4 }}
                 viewport={{ once: true }}
-                className="mt-6"
+                className="mt-3 sm:mt-4 lg:mt-6"
               >
                 <motion.a
                   href="#"
                   whileHover={{ x: 5 }}
-                  className="text-yellow-300 font-medium inline-flex items-center"
+                  className="text-yellow-300 font-medium inline-flex items-center text-xs sm:text-sm lg:text-base"
                 >
                   Pelajari lebih lanjut
                   <svg
-                    className="w-4 h-4 ml-2"
+                    className="w-3 h-3 sm:w-4 sm:h-4 ml-2"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

@@ -22,12 +22,11 @@ export default function Navbar({ logoSrc }: { logoSrc?: string }) {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
@@ -37,14 +36,13 @@ export default function Navbar({ logoSrc }: { logoSrc?: string }) {
                 <Image
                   src={logoSrc}
                   alt="Organization Logo"
-                  width={120}
-                  height={40}
-                  className="object-contain"
+                  width={200}
+                  height={67}
+                  className="object-contain h-12 sm:h-16 w-auto"
                 />
               ) : (
-                <span className={`text-2xl font-bold bg-clip-text text-transparent ${
-                  isScrolled ? "bg-gradient-to-r from-green-700 to-yellow-600" : "bg-gradient-to-r from-green-200 to-yellow-200"
-                }`}>
+                <span className={`text-2xl font-bold bg-clip-text text-transparent ${isScrolled ? "bg-gradient-to-r from-green-700 to-yellow-600" : "bg-gradient-to-r from-green-200 to-yellow-200"
+                  }`}>
                   IPNU IPPNU
                 </span>
               )}
@@ -55,9 +53,8 @@ export default function Navbar({ logoSrc }: { logoSrc?: string }) {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset ${
-                isScrolled ? "text-gray-900 focus:ring-green-600" : "text-white focus:ring-yellow-300"
-              }`}
+              className={`p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset ${isScrolled ? "text-gray-900 focus:ring-green-600" : "text-white focus:ring-yellow-300"
+                }`}
             >
               {isMenuOpen ? (
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -69,17 +66,26 @@ export default function Navbar({ logoSrc }: { logoSrc?: string }) {
 
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {["Tentang", "Kegiatan", "Gabung"].map((item) => (
+            {["Tentang", "Struktur", "Kegiatan", "Gabung"].map((item) => (
               <motion.div
                 key={item}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href={item === "Gabung" ? "#cta" : `#${item.toLowerCase()}`}
-                  className={`text-sm font-medium ${
-                    isScrolled ? "text-gray-900" : "text-white"
-                  } hover:text-green-600 transition-colors`}
+                  href={
+                    item === "Struktur"
+                      ? "/struktur"
+                      : item === "Gabung"
+                        ? "/#cta"
+                        : `/#${item.toLowerCase()}`
+                  }
+                  className={`text-sm lg:text-base font-medium ${isScrolled ? "text-gray-900" : "text-white"
+                    } hover:text-green-600 transition-colors`}
+                  onClick={() => {
+                    // Close mobile menu if open
+                    if (isMenuOpen) setIsMenuOpen(false);
+                  }}
                 >
                   {item}
                 </Link>
@@ -89,7 +95,7 @@ export default function Navbar({ logoSrc }: { logoSrc?: string }) {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-green-700 transition-colors"
+                className="bg-green-600 text-white px-4 sm:px-6 py-2 rounded-full text-sm font-medium hover:bg-green-700 transition-colors"
               >
                 Daftar Sekarang
               </motion.button>
@@ -110,13 +116,18 @@ export default function Navbar({ logoSrc }: { logoSrc?: string }) {
         className={`md:hidden ${isScrolled ? "bg-white" : "bg-green-700"} pb-4`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          {["Tentang", "Kegiatan", "Gabung"].map((item) => (
+          {["Tentang", "Struktur", "Kegiatan", "Gabung"].map((item) => (
             <Link
               key={item}
-              href={item === "Gabung" ? "#cta" : `#${item.toLowerCase()}`}
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-white hover:bg-green-600"
-              }`}
+              href={
+                item === "Struktur"
+                  ? "/struktur"
+                  : item === "Gabung"
+                    ? "/#cta"
+                    : `/#${item.toLowerCase()}`
+              }
+              className={`block px-3 py-2 rounded-md text-sm sm:text-base font-medium ${isScrolled ? "text-gray-700 hover:bg-gray-50" : "text-white hover:bg-green-600"
+                }`}
               onClick={() => setIsMenuOpen(false)}
             >
               {item}
@@ -124,9 +135,8 @@ export default function Navbar({ logoSrc }: { logoSrc?: string }) {
           ))}
           <Link
             href="/pendaftaran"
-            className={`block w-full text-center px-4 py-2 rounded-full text-base font-medium mt-4 ${
-              isScrolled ? "bg-green-600 text-white hover:bg-green-700" : "bg-yellow-400 text-green-900 hover:bg-yellow-500"
-            }`}
+            className={`block w-full text-center px-4 py-2 rounded-full text-sm sm:text-base font-medium mt-4 ${isScrolled ? "bg-green-600 text-white hover:bg-green-700" : "bg-yellow-400 text-green-900 hover:bg-yellow-500"
+              }`}
             onClick={() => setIsMenuOpen(false)}
           >
             Daftar Sekarang

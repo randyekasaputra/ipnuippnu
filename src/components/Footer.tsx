@@ -5,7 +5,7 @@ import {
   PhoneIcon,
   MapPinIcon,
 } from "@heroicons/react/24/outline";
-import { FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaTiktok } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -59,6 +59,7 @@ export default function Footer() {
               {[
                 { name: "Instagram", link: "https://www.instagram.com/ipnuippnusuwawaltimur?utm_source=ig_web_button_share_sheet&igsh=dnYyNmc1NnA5cGNi", icon: FaInstagram },
                 { name: "Facebook", link: "https://www.facebook.com/ipnuippnusuwawaltimur.ipnuippnusuwawaltimur", icon: FaFacebook },
+                { name: "TikTok", link: "https://www.tiktok.com/@ipnuippnu.suwawaltimur", icon: FaTiktok },
               ].map((social) => (
                 <motion.a
                   key={social.name}
